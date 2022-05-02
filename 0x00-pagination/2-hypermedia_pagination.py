@@ -40,9 +40,10 @@ class Server:
         pagination: List = self.dataset()
 
         return (pagination[range[0]:range[1]])
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """returns dict with func args"""
-                data = []
+        data = []
         try:
             data = self.get_page(page, page_size)
         except AssertionError:
