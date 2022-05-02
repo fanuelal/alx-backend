@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-""" Simple pagination """
+""" Hypermedia pagination """
 import csv
-import math
+from math import ceil
 from typing import List, Tuple, Dict
 
 
@@ -42,7 +42,24 @@ class Server:
         return (pagination[range[0]:range[1]])
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-        """returns dict with func args"""
+        """
+            Range of the page
+            Args:
+                page: Current page
+                page_size: Total size of the page
+            Return:
+                Dict with different arguments
+                page_size: the length of the returned dataset page
+                page: the current page number
+                data: the dataset page
+                (equivalent to return from previous task)
+                next_page: number of the next page, None if no next page
+                prev_page: number of the previous page,
+                None if no previous page
+                total_pages: the total number of pages
+                in the dataset as an integer
+        """
+
         data = []
         try:
             data = self.get_page(page, page_size)
@@ -66,6 +83,21 @@ class Server:
 
         return hypermedia
 
+
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """
+    Range of the page
+    Args:
+        page: Current page
+        page_size: Total size of the page
+    Return:
+        tuple with the range start and end size page
+    """
+
+    final_size: int = page * page_size
+    start_size: int = final_size - page_size
+
+    return (start_size, final_size)
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ return a tuple of size two """
