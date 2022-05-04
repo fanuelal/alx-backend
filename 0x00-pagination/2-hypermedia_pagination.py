@@ -49,15 +49,6 @@ class Server:
                 page_size: Total size of the page
             Return:
                 Dict with different arguments
-                page_size: the length of the returned dataset page
-                page: the current page number
-                data: the dataset page
-                (equivalent to return from previous task)
-                next_page: number of the next page, None if no next page
-                prev_page: number of the previous page,
-                None if no previous page
-                total_pages: the total number of pages
-                in the dataset as an integer
         """
 
         data = []
@@ -98,6 +89,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     start_size: int = final_size - page_size
 
     return (start_size, final_size)
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ return a tuple of size two """
