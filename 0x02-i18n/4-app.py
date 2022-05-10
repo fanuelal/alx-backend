@@ -1,7 +1,8 @@
-#!/usr/bin/env pthon3
-"""Module Force locale"""
+#!/usr/bin/env python3
+"""Module Parametrize"""
+
 from flask import Flask, request, render_template
-from flask_babel import Babel,gettext
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
