@@ -20,9 +20,9 @@ app.config.from_object(Config)
 @babel.localeselector
 def get_locale():
     ''' return best languages '''
-    lang = request.args.get('locale')
-    if lang:
-        return lang
+    locale = request.args.get('locale')
+    if locale:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
