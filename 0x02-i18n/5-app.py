@@ -14,6 +14,7 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -36,8 +37,8 @@ def get_user():
     else:
         return None
 
+
 @app.before_request
 def before_request():
     """excute before request"""
     g.user = get_user()
-    
