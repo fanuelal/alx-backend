@@ -11,7 +11,7 @@ bable = Babel(app)
 class Config:
     """configure available"""
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "ën"
+    BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
@@ -24,5 +24,5 @@ def RootApp():
     return render_template('1_index.html')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()
